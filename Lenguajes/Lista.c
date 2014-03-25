@@ -1,3 +1,5 @@
+#ifndef LISTA_C
+#define LISTA_C
 #include "Lista.h"
 
 void inicializacion (Lista *lista){
@@ -38,3 +40,4 @@ int ins_nodo(Lista * lista, Nodo_t * nodo)
       }
   return 0;
 }
+#endif
