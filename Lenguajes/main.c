@@ -24,7 +24,7 @@ int main(int argc, char* argv[])
     Lista * lis;
     inicializacion(lis);
 
-    ins_fin_lista(lis,1,0);
+    ins_fin_lista(lis,1,1);
     Casilla** matriz = crearMatrizAleatoria();
     /*Nodo_t* aux;
     aux = calloc(1,sizeof(Nodo_t));

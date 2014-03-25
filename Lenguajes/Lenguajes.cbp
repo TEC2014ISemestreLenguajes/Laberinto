@@ -32,6 +32,10 @@
 			<Add option="-Wall" />
 		</Compiler>
 		<Unit filename="Casilla.h" />
+		<Unit filename="Lista.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="Lista.h" />
 		<Unit filename="Matriz.c">
 			<Option compilerVar="CC" />
 		</Unit>

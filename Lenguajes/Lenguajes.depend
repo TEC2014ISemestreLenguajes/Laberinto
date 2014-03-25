@@ -26,3 +26,30 @@
 1395727072 /home/melvin/Documentos/Lenguajes/Proyecto/Lenguajes/Lista.h
 	<stdio.h>
 
+1395732826 source:/home/ricardo/Documentos/gitNuevo/Laberinto/Lenguajes/Lista.c
+	"Lista.h"
+
+1395732826 /home/ricardo/Documentos/gitNuevo/Laberinto/Lenguajes/Lista.h
+	<stdio.h>
+
+1395735416 source:/home/ricardo/Documentos/gitNuevo/Laberinto/Lenguajes/main.c
+	<stdio.h>
+	<math.h>
+	<stdlib.h>
+	"Casilla.h"
+	"Matriz.h"
+	"Lista.h"
+
+1395732826 /home/ricardo/Documentos/gitNuevo/Laberinto/Lenguajes/Casilla.h
+	<stdbool.h>
+
+1395732826 /home/ricardo/Documentos/gitNuevo/Laberinto/Lenguajes/Matriz.h
+	"Lista.h"
+
+1395735392 source:/home/ricardo/Documentos/gitNuevo/Laberinto/Lenguajes/Matriz.c
+	<stdio.h>
+	<math.h>
+	<stdlib.h>
+	"Casilla.h"
+	"Matriz.h"
+
