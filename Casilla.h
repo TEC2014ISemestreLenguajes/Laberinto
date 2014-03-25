@@ -7,7 +7,7 @@ typedef struct Casilla{
   bool paredAbajo;
   bool paredDerecha;
   bool paredIzquierda;
-  bool visita;
+  bool visita
   int valor;
 }Casilla;
 
