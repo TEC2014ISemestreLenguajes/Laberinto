@@ -1,23 +1,27 @@
 #ifndef LISTA_H
 #define LISTA_H
 
-# include <stdio.h>
+#include <stdlib.h>
+#include <stdio.h>
 
-typedef struct Nodo {
-       int x;
-       int y;
-       int pared;
-       int menor;
-       struct Nodo* sig;
-}Nodo_t;
+typedef struct _nodo {
+   int x;
+   int y;
+   int pared;
+   int menor;
+   struct _nodo *siguiente;
+} tipoNodo;
 
-typedef struct Lista {
-		Nodo_t *inicio;
-		Nodo_t *fin;
-}Lista;
 
-void inicializacion (Lista *lista);
+typedef tipoNodo *pNodo;
+typedef tipoNodo *Lista;
 
-int ins_fin_lista (Lista * lista,int x ,int y);
-int ins_nodo(Lista * lista, Nodo_t * nodo);
+/* Funciones con listas: */
+void Insertar(Lista *l, int x,int y,int menor,int pared);
+//void Borrar(Lista *l, int v);
+
+int ListaVacia(Lista l);
+
+//void BorrarLista(Lista *);
+void MostrarLista(Lista l);
 #endif

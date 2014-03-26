@@ -5,6 +5,6 @@
 
 
 Casilla** crearMatrizAleatoria();
-Nodo_t * buscarMenor(Nodo_t* nodo, Casilla** matriz, int m , int n);
+pNodo buscarMenor(pNodo nodo, Casilla** matriz, int m , int n);
 
 #endif

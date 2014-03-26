@@ -43,104 +43,151 @@ Casilla** crearMatrizAleatoria(){
   return matriz;
 
 }
-Nodo_t * buscarMenor(Nodo_t* _nodo, Casilla** matriz, int m , int n){
-    Nodo_t* aux;
-    aux = malloc(sizeof(Nodo_t));
+pNodo buscarMenor(pNodo _nodo, Casilla** matriz, int m , int n){
+    pNodo aux;
+    aux = (pNodo)malloc(sizeof(tipoNodo));
     int i;
     int minimo = 101;
     int fila, colum = -1;
     int pared = 0;
+    int a = _nodo->x;
+    int b = _nodo->y;
     for(i = 1; i <= 4; i ++){
         switch(i){
             case 1:{
-                int a = _nodo->x;
-                int b = _nodo->y;
                 if((a -1 >= 0)&&(matriz[a-1][b].visita == false)){
                     if(matriz[a-1][b].valor < minimo){
                         minimo = matriz[a-1][b].valor;
                         fila = a-1;
                         colum = b;
                         pared = 1;
-                        printf("Minimo %d\n", minimo);
+                        //printf("Minimo %d\n", minimo);
                     }
                 }
             }
             case 2:{
-                int a = _nodo->x;
-                int b = _nodo->y;
                 if((b+1 <= n)&&(matriz[a][b+1].visita == false)){
                     if(matriz[a][b+1].valor < minimo){
                         minimo = matriz[a][b+1].valor;
                         fila = a;
                         colum = b+1;
                         pared = 2;
-                        printf("Minimo %d\n", minimo);
+                        //printf("Minimo %d\n", minimo);
                     }
                 }
             }
             case 3:{
-                int a = _nodo->x;
-                int b = _nodo->y;
                 if((a+1 <= m)&&(matriz[a+1][b].visita == false)){
                     if(matriz[a+1][b].valor < minimo){
                         minimo = matriz[a+1][b].valor;
                         fila = a+1;
                         colum = b;
                         pared = 3;
-                        printf("Minimo %d\n", minimo);
+                        //printf("Minimo %d\n", minimo);
                     }
                 }
             }
             case 4:{
-                int a = _nodo->x;
-                int b = _nodo->y;
                 if((b-1 >= 0)&&(matriz[a][b-1].visita == false)){
                     if(matriz[a][b-1].valor < minimo){
                         minimo = matriz[a][b-1].valor;
                         fila = a;
                         colum = b-1;
                         pared = 4;
-                        printf("Minimo %d\n", minimo);
+                        //printf("Minimo %d\n", minimo);
                     }
                 }
             }
             default:
                 break;
-            /*if(i == 1){
-            int a = _nodo->x;
-            int b = _nodo->y;
-            if((a -1 >= 0)&&(matriz[a-1][b].visita == false)){
-            if(matriz[a-1][b].valor < minimo){
-            printf(":D");
-            minimo = matriz[a-1][b].valor;
-            fila = a-1;
-            colum = b;
-            pared = 1;
             }
-            }
-            }*/
-            /*switch(i){
-            case 1:
-            //int a = &_nodo->x;
-            int b = _nodo->y;
-            if((a -1 >= 0)&&(matriz[a][b]->visita == false)){
-            printf("Es 1\n");
-            }
-            break;
-            case 2:
-            printf("Es 2\n");
-            break;
-            case 3:
-            printf("Es 3\n");
-            break;
-            case 4:
-            printf("Es 4\n");
-            break;
-            default:
-            break;
-            }*/
-            }
-            return aux;
         }
+    aux->x = fila;
+    aux->y = colum;
+    aux->menor = minimo;
+    aux->pared = pared;
+    aux->siguiente = NULL;
+    return aux;
+}
+Casilla ** camino(Casilla** matriz,int m,int n){
+    printf(":s");
+    int i;
+    Lista lis = NULL;
+    //lis = (Lista)malloc(sizeof(tipoNodo)*(m*n));
+
+    Insertar(&lis,0,0,matriz[0][0].valor,-1);
+    matriz[0][0].visita = true;
+
+
+    for(i =2; i <= (m*n);i++){
+        pNodo aux,nmenor;
+        aux = (pNodo)malloc(sizeof(tipoNodo));
+        nmenor = (pNodo)malloc(sizeof(tipoNodo));
+        aux = lis;
+        nmenor->menor = 101;
+        int j = 1;
+
+        while(aux){
+            pNodo aux2 = buscarMenor(aux,matriz,m,n);
+            printf("%d -> ",aux->menor);
+            if(aux2->menor < nmenor->menor){
+                nmenor = aux2;
+
+            }
+            aux = aux->siguiente;
+        }
+        free(aux);
+
+        printf("\n");
+        int a = nmenor->x;
+        int b = nmenor->y;
+        int pared = nmenor->pared;
+        int menor = nmenor->menor;
+        //free(aux);
+        free(nmenor);
+        printf("Salio, pared %d \n" ,pared);
+        matriz[a][b].visita = true;
+        switch(pared){
+            case 1:{
+                matriz[a][b].paredAbajo = 0;
+                matriz[a + 1][b].paredArriba = 0;
+            }
+            case 2:{
+                matriz[a][b].paredIzquierda = 0;
+                matriz[a][b-1].paredDerecha = 0;
+            }
+            case 3:{
+                matriz[a][b].paredArriba = 0;
+                matriz[a-1][b].paredAbajo = 0;
+            }
+            case 4:{
+                matriz[a][b].paredDerecha = 0;
+                matriz[a][b+1].paredIzquierda = 0;
+            }
+        }
+
+        Insertar(&lis,a,b,menor,pared);
+
+        /*printf("For i = %d \n",i);
+        int c;
+        for(c = 0; c < 5; c++){
+            if(matriz[0][c].paredIzquierda != 0){
+                printf("║ ");
+            }
+            else{
+                printf("  ");
+            }
+        }
+        printf("\n");
+        for(c = 0; c <5 ; c++){
+            if(matriz[c][0].paredAbajo != 0){
+                printf(" T ");
+            }
+            else{
+                printf("  ");
+            }
+        }*/
+    }
+    return matriz;
 }
 #endif
