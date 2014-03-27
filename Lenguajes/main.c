@@ -17,33 +17,13 @@
  *
  */
 
-
-
 int main(int argc, char* argv[])
 {
-    //Lista * lis;
-    //inicializacion(lis);
-
-    //ins_fin_lista(lis,1,1);
-      int m,n;
-
-
-      printf("Ingrese el numero de filas\n");
-      scanf("%d",&m);
-      printf("Ingrese el numero de columas\n");
-      scanf("%d",&n);
+    int m = atoi(argv[1]);
+    int n = atoi(argv[2]);
     Casilla** matriz = crearMatrizAleatoria(m,n);
-    matriz = camino(matriz,10,10);
-    /*Nodo_t* aux;
-    aux = calloc(1,sizeof(Nodo_t));
-    if(aux == NULL){
-        printf("Error");
-        return 0;
-    }*/
-    //lis->inicio = buscarMenor(lis->inicio,matriz,10,10);
-    //lis->inicio = buscarMenor(lis,matriz,2,2);
-    //printf("Valor %d \n",matriz[0][0].paredAbajo);
-    //printf("Lista %d",lis->inicio->x);
+    matriz = camino(matriz,m,n);
+
     return 0;
 
 }
