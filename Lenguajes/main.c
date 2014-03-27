@@ -25,8 +25,14 @@ int main(int argc, char* argv[])
     //inicializacion(lis);
 
     //ins_fin_lista(lis,1,1);
-    Casilla** matriz = crearMatrizAleatoria();
-    printf("Llamada a la funcion \n");
+      int m,n;
+
+
+      printf("Ingrese el numero de filas\n");
+      scanf("%d",&m);
+      printf("Ingrese el numero de columas\n");
+      scanf("%d",&n);
+    Casilla** matriz = crearMatrizAleatoria(m,n);
     matriz = camino(matriz,10,10);
     /*Nodo_t* aux;
     aux = calloc(1,sizeof(Nodo_t));
