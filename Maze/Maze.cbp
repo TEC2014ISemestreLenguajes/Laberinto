@@ -35,40 +35,35 @@
 		<Linker>
 			<Add option="`pkg-config gtk+-2.0 --libs`" />
 		</Linker>
-		<Unit filename="Casilla.h">
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="Cola.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="Cola.h">
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
+		<Unit filename="Casilla.h" />
 		<Unit filename="Lista.c">
 			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
-		<Unit filename="Lista.h">
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
+		<Unit filename="Lista.h" />
 		<Unit filename="Matriz.c">
 			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
-		<Unit filename="Matriz.h">
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="Pila.c">
+		<Unit filename="Matriz.h" />
+		<Unit filename="cola.c">
 			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
-		<Unit filename="Pila.h">
-			<Option target="&lt;{~None~}&gt;" />
+		<Unit filename="cola.h" />
+		<Unit filename="laberinto.c">
+			<Option compilerVar="CC" />
 		</Unit>
+		<Unit filename="laberinto.h" />
 		<Unit filename="main.c">
 			<Option compilerVar="CC" />
 		</Unit>
+		<Unit filename="makefile" />
+		<Unit filename="pila.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="pila.h" />
+		<Unit filename="raton.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="raton.h" />
 		<Extensions>
 			<code_completion />
 			<debugger />

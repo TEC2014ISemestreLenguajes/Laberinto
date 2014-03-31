@@ -37,6 +37,10 @@ Casilla** crearMatrizAleatoria(int m,int n,int quesos,int venenos){
         matriz[i][j].queso = true;
         quesos --;
       }
+      matriz[i][j].ratonProf = false;
+      matriz[i][j].ratonAnch = false;
+      matriz[i][j].x = i;
+      matriz[i][j].y = j;
       printf("%d\t",matriz[i][j].valor);
     }
     printf("\n");

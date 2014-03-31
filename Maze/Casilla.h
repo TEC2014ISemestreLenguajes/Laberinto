@@ -1,6 +1,5 @@
 #ifndef CASILLA_H
 #define CASILLA_H
-
 #include <stdbool.h>
 
 typedef struct Casilla{
@@ -11,8 +10,17 @@ typedef struct Casilla{
   bool visita;
   bool queso;
   bool veneno;
+  bool ratonProf;
+  bool ratonAnch;
+  bool raton1;
+  bool raton2;
+  bool raton3;
   int valor;
+  int x;
+  int y;
+  struct Casilla *siguiente;
 }Casilla;
 
-
-#endif // CASILLA_H_INCLUDED
+typedef Casilla *piNodo;
+typedef Casilla *Pila;
+#endif
